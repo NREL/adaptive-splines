@@ -1,0 +1,29 @@
+Package: adaptivesplines
+Title: Easy Learning of Univariate Relationships Using Splines
+Version: 0.1.0
+Authors@R: c(
+    person("Sinnott", "Murphy", email="sinnott.murphy@nrel.gov",
+           role=c("aut", "cre"), comment=c(ORCID="0000-0002-4572-8295")), 
+    person("Alliance for Sustainable Energy, LLC", role="cph"))
+Description: This package provides functionality to fit piecewise cubic splines
+    to model the relationship between a univariate 'X' and a univariate 'Y' as
+    well as to use the fitted spline models to make predictions based on new 
+    'X' data. The canonical use case is for predicting hourly electric demand
+    from hourly temperature given one or more years of data. The package models
+    the relationship between these two variables as the sum of: 1) an aggregate
+    relationship between daily average 'X' and daily average 'Y', and 2) 
+    monthly intra-day patterns represented as hourly offsets from the daily
+    average 'Y'. The spline functionality is used for learning a robust 
+    aggregate relationship without the inconvenience of manual feature 
+    engineering and with higher capacity than linear regression. The model 
+    fitting workhorse is R's built-in 'smooth.spline'. This package provides 
+    a suite of options for controlling how 'smooth.spline' fits a spline to 
+    the data. In particular, it is designed to return a model with a single 
+    critical point to ensure that changes in predicted electric demand are 
+    always positive as temperatures become more extreme.
+URL: https://github.com/NREL/adaptive-splines
+BugReports: https://github.com/NREL/adaptive-splines/issues
+License: BSD_3_clause + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown=TRUE)
+RoxygenNote: 7.1.2
